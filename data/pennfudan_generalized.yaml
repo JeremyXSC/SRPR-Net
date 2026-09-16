@@ -1,0 +1,8 @@
+# Paths are resolved by the upstream YOLO dataset loader.
+# Place the converted dataset at datasets/PennFudanPed, or edit path below.
+path: datasets/PennFudanPed
+train: train_dev.txt
+val: val_dev.txt
+test: test.txt
+nc: 1
+names: [person]

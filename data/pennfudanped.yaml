@@ -1,0 +1,8 @@
+path: PennFudanPed
+train: images/train
+val: images/val
+test: images/val
+# Number of classes
+nc: 1
+# Class names
+names: [person]

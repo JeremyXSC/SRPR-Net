@@ -1,0 +1,6 @@
+path: datasets/RWCellIns
+train: train.txt
+val: val.txt
+test: test.txt
+nc: 2
+names: [RBC, WBC]
