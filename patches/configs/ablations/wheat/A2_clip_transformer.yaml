@@ -1,0 +1,125 @@
+experiment:
+  name: wheat_A2_clip_transformer
+  description: WheatIns dense-instance experiment with leakage-free validation
+dataset:
+  yaml: data/wheat_generalized.yaml
+  overlap_masks: true
+  mask_ratio: 4
+model:
+  cfg: models/segment/yolov7-seg.yaml
+  weights: runs/pretrain_wheat/best_detector.pt
+sam:
+  vit_name: vit_b
+  checkpoint: weights/sam_vit_b_01ec64.pth
+  lora_rank: 4
+foundation:
+  enabled: true
+  model_name: ViT-B/32
+  fallback_dim: 512
+refiner:
+  enabled: true
+  use_attention: true
+  hidden_dim: 256
+  num_heads: 8
+  num_layers: 2
+  dropout: 0.1
+  max_center_shift: 0.25
+  max_log_scale: 0.35
+semantic_prior:
+  enabled: false
+  initial_alpha: 0.35
+  learnable_alpha: false
+  max_alpha: 2.0
+  default_context: wheat_field
+pretraining:
+  epochs: 50
+  output: runs/pretrain_wheat
+  patience: 10
+training:
+  device: cpu
+  imgsz: 512
+  batch_size: 1
+  epochs: 20
+  workers: 0
+  seed: 2026
+  inner_split_ratio: 0.5
+  amp: false
+  cache: null
+optimization:
+  optimizer: sgd
+  scheduler: linear
+  detector_lr: 0.001
+  refiner_lr: 0.001
+  prior_lr: 0.001
+  sam_lr: 0.001
+  momentum: 0.937
+  final_lr_factor: 0.1
+  weight_decay: 0.0005
+  sam_weight_decay: 0.0
+  max_grad_norm: 10.0
+loss:
+  lambda_mask: 0.7
+  lambda_constraint: 0.0
+  lambda_semantic: 0.0
+  lambda_quality: 0.05
+  lambda_sam_quality: 0.0
+  quality_target: box_iou
+  boundary_weight: 0.0
+  min_match_iou: 0.05
+  min_area_ratio: 0.55
+  max_area_ratio: 1.8
+  max_center_shift: 0.2
+inference:
+  conf_thres: 0.001
+  nms_iou: 0.55
+  max_det: auto
+  agnostic_nms: false
+  quality_gain: 0.25
+  mask_quality_weight: 0.0
+  tta:
+    enabled: false
+    scales:
+    - 0.83
+    - 1.0
+    - 1.17
+    flips:
+    - none
+    - horizontal
+validation:
+  split: val
+  batch_size: 1
+  interval: 1
+output:
+  directory: runs/ablations/wheat/A2_clip_transformer
+hyperparameters:
+  lr0: 0.001
+  lr_sam: 0.001
+  lrf: 0.1
+  momentum: 0.937
+  weight_decay: 0.0005
+  warmup_epochs: 0.0
+  warmup_momentum: 0.8
+  warmup_bias_lr: 0.1
+  box: 0.3
+  cls: 0.3
+  cls_pw: 1.0
+  obj: 0.7
+  obj_pw: 1.0
+  iou_t: 0.2
+  anchor_t: 4.0
+  fl_gamma: 0.0
+  hsv_h: 0.015
+  hsv_s: 0.5
+  hsv_v: 0.3
+  degrees: 0.0
+  translate: 0.1
+  scale: 0.5
+  shear: 0.0
+  perspective: 0.0
+  flipud: 0.0
+  fliplr: 0.5
+  mosaic: 0.75
+  mixup: 0.0
+  copy_paste: 0.1
+  paste_in: 0.0
+  loss_ota: 1

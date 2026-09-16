@@ -1,0 +1,6 @@
+train: /data2/li/workspace/data/cell_rw/train.txt
+val: /data2/li/workspace/data/cell_rw/val.txt
+test: /data2/li/workspace/data/cell_rw/val.txt
+# number of classes
+nc: 2
+names: ['RBC', 'WBC']
