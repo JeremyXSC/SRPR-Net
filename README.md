@@ -19,7 +19,7 @@ We propose a novel architecture, named Semantic Relational Prompt Refinement Net
 For a CUDA-capable computer, build the original environment:
 ```
 conda env create -f environment.yml
-conda activate blo-inst
+conda activate blo-inst-hpc
 ```
 
 ### CPU-only environment（无 GPU）
