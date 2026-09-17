@@ -1,16 +1,15 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-python -W ignore segment/train.py \
-    --data data/PennFudanPed.yaml \
-    --batch-size 1 \
-    --weights yolo-pretrained/ped.pt \
-    --cfg models/segment/yolov7-seg.yaml \
-    --epochs 20 \
-    --name blo-inst \
-    --imgsz 256 \
-    --hyp data/hyp.scratch.custom.yaml \
-    --sam_ckpt weights/sam_vit_b_01ec64.pth \
-    --device cpu \
-    --workers 0 \
-    --wandb_mode disabled
+python segment/train_generalized.py \
+    --config configs/generalized_blo_pennfudan.yaml \
+    --set training.device=cpu \
+    --set training.batch_size=1 \
+    --set training.workers=0 \
+    --set training.amp=false \
+    --set foundation.enabled=true \
+    --set refiner.enabled=true \
+    --set refiner.use_attention=true \
+    --set loss.lambda_constraint=0.0 \
+    --set semantic_prior.enabled=false \
+    --set loss.lambda_semantic=0.0
