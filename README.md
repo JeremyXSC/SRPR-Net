@@ -53,7 +53,7 @@ python -c "import torch; print(torch.__version__); print(torch.cuda.is_available
 ## Training
 You can try our code on one of the public datasets we used in our experiments. Here are the instructions: 
 
-1. We provide the [Penn-Fudan Database](./PennFudanPed/)
+1. We provide the [Penn-Fudan Database](https://www.cis.upenn.edu/~jshi/ped_html/).
 2. Pretrain the YOLO model on this dataset. We also provide the [checkpoint](./yolo-pretrained/ped.pt) for your quick try.
 3. Download the
    [official SAM ViT-B checkpoint](https://dl.fbaipublicfiles.com/segment_anything/sam_vit_b_01ec64.pth)
