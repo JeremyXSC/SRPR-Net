@@ -92,10 +92,9 @@ python -W ignore segment/train.py --data data/PennFudanPed.yaml --batch-size 1 -
 
 ## Cross-dataset experiments
 
-The leakage-free WheatIns/RWCellIns pipeline, target-domain detector pretraining,
-Mask-IoU score calibration, boundary loss, inference tuning, TTA, and three-seed
-experiment matrix are documented in
-[docs/10_跨数据集实验运行说明.md](docs/10_跨数据集实验运行说明.md).
+## Cross-dataset experiments
+
+Dataset preparation, detector pretraining, model configuration, training, and evaluation on WheatIns, RWCellIns, and custom datasets are documented in [跨数据集实验运行说明](./跨数据集实验运行说明.md).
 
 ## License
 This work is licensed under MIT license. See the [LICENSE](LICENSE) for details.
