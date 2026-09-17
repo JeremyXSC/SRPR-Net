@@ -10,7 +10,7 @@ This repository contains the implementation of the following paper:
   <img src="pipeline.png" alt="Overview of the SRPR-Net framework" width="100%">
 </p>
 
-we propose a novel architecture, named Semantic Relational Prompt Refinement Network (SRPR-Net), for automated SAM-based instance segmentation. Specifically, SRPR-Net enriches detector-generated prompts with frozen CLIP features and conducts relational prompt refinement via a Transformer-based interaction module, which models inter-instance dependencies among semantically enhanced prompts to yield refined box prompts for SAM segmentation. Experiments on multiple standard benchmarks demonstrate that SRPR-Net consistently improves segmentation performance over existing approaches and achieves consistent improvements across three heterogeneous instance segmentation benchmarks. 
+We propose a novel architecture, named Semantic Relational Prompt Refinement Network (SRPR-Net), for automated SAM-based instance segmentation. Specifically, SRPR-Net enriches detector-generated prompts with frozen CLIP features and conducts relational prompt refinement via a Transformer-based interaction module, which models inter-instance dependencies among semantically enhanced prompts to yield refined box prompts for SAM segmentation. Experiments on multiple standard benchmarks demonstrate that SRPR-Net consistently improves segmentation performance over existing approaches and achieves consistent improvements across three heterogeneous instance segmentation benchmarks. 
 
 ## Prerequisites
 - Linux (We tested our codes on Ubuntu 24.04)
