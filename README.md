@@ -94,7 +94,7 @@ python -W ignore segment/train.py --data data/PennFudanPed.yaml --batch-size 1 -
 
 ## Cross-dataset experiments
 
-Dataset preparation, detector pretraining, model configuration, training, and evaluation on WheatIns, RWCellIns, and custom datasets are documented in [跨数据集实验运行说明](./跨数据集实验运行说明.md).
+Dataset preparation, detector pretraining, model configuration, training, and evaluation on WheatIns, RWCellIns, and custom datasets are documented in [跨数据集实验运行说明](./doc/跨数据集实验运行说明.md)
 
 ## License
 This work is licensed under MIT license. See the [LICENSE](LICENSE) for details.
